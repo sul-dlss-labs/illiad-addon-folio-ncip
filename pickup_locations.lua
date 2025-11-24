@@ -2,17 +2,17 @@
 -- ILLiad request form, and values correspond to the location codes
 -- in FOLIO.
 return {
-    Olin = "olin,circ",
-    Africana = "afr,circ",
-    Annex = "anx,grab",
-    ILR = "ilr,circ",
-    Fine = "fine,circ",
-    Law = "law,circ",
-    Management = "jgsm,circ",
-    Mann = "mann,circ",
-    Math = "math,circ",
-    Music = "mus,circ",
-    Nestle = "nest,circ",
-    Tech = "remote,tech",
-    Vet = "vet,circ"
+    GREEN = "GREEN-LOAN",
+    EAST-ASIA = "EAST-ASIA,EAST-ASIA",
+    ART = "ART,ART",
+    LAW = "LAW",
+    ENG = "ENG",
+    LANE = "LANE-DESK",
+    MARINE-BIO = "MARINE-BIO",
+    MUSIC = "MUSIC",
+    RWC = "RWC",
+    SCIENCE = "SCIENCE",
+    BUSINESS = "BUS-IDESK",
+    EARTH-SCI = "EARTH-SCI",
+    EDUCATION = "EDUCATION"
 }

@@ -10,7 +10,7 @@
     <File>folio_ncip_connector.lua</File>
   </Files>
   <Settings>
-    <Setting name="NCIP_URL" value="https://edge-cornell.folio.ebsco.com/ncip" type="string">
+    <Setting name="NCIP_URL" value="https://folio-ncip-test.stanford.edu/ncip" type="string">
       <Description>The URL for your NCIP receiver. For FOLIO, this should be the Edge-NCIP URL.</Description>
     </Setting>
     <Setting name="NCIP_AUTH_KEY" type="string" value="">
