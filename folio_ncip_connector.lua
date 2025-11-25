@@ -105,23 +105,23 @@ function build_accept_item_xml()
 
     xml = xml .. '<InitiationHeader>';
     xml = xml .. '<FromAgencyId>';
-    xml = xml .. '<AgencyId>ILL</AgencyId>';
+    xml = xml .. '<AgencyId>ReShare</AgencyId>';
     xml = xml .. '</FromAgencyId>';
     xml = xml .. '<ToAgencyId>';
-    xml = xml .. '<AgencyId>Cornell</AgencyId>';
+    xml = xml .. '<AgencyId>STANFORD</AgencyId>';
     xml = xml .. '</ToAgencyId>';
     xml = xml .. '<ApplicationProfileType>ILL</ApplicationProfileType>';
     xml = xml .. '</InitiationHeader>';
 
 	  xml = xml .. '<RequestId>';
-    xml = xml .. '<AgencyId>Cornell</AgencyId>';
+    xml = xml .. '<AgencyId>STANFORD</AgencyId>';
     xml = xml .. '<RequestIdentifierValue>' .. transaction_no .. '</RequestIdentifierValue>';
     xml = xml .. '</RequestId>';
     
     xml = xml .. '<RequestedActionType>Hold For Pickup And Notify</RequestedActionType>';
     
     xml = xml .. '<UserId>';
-    xml = xml .. '<AgencyId>Cornell</AgencyId>';
+    xml = xml .. '<AgencyId>STANFORD</AgencyId>';
     xml = xml .. '<UserIdentifierValue>' .. borrower .. '</UserIdentifierValue>';
     xml = xml .. '</UserId>';
     
@@ -169,20 +169,18 @@ function get_pickup_location()
         return "GREEN-LOAN";
     end
 
+    LogDebug("Attempting to retrieve request location");
     request_location = request_location:upper();
+    LogDebug("request location: " .. request_location);
 
     local success, pickup_locations_map = pcall(require, "pickup_locations");
     if not success then
         error("Failed to load pickup locations map from file");
     end
 
-    -- Convert keys in pickup_locations_map to uppercase
-    local upper_case_map = {};
-    for k, v in pairs(pickup_locations_map) do
-        upper_case_map[k:upper()] = v;
-    end
-
-    local folio_location_code = upper_case_map[request_location];
+    local folio_location_code = pickup_locations_map[request_location];
+    LogDebug("Location: " .. folio_location_code);
+    
     if not folio_location_code then
         LogDebug("Didn't find a recognizable pickup location; defaulting to GREEN-LOAN. Location code found: " .. request_location);
         return "GREEN-LOAN";
