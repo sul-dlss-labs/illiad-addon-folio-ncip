@@ -13,5 +13,6 @@ return {
     BUSINESS = "BUS-IDESK",
     LANE = "LANE-DESK",
     ["MARINE-BIO"] = "MARINE-BIO",
-    ["EARTH-SCI"] = "EARTH-SCI"
+    ["EARTH-SCI"] = "EARTH-SCI",
+    ["EAST-ASIA"] = "EAST-ASIA"
 }
